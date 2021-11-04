@@ -39,27 +39,49 @@ print(shopping_list[0])
 print('Step 7.1 - Accessing elements of a list that does not exist')
 ## If the elements is not available in the index, then and error occur
 
-class Integer(Exception):
-    def __init__(self, message):
-        super().__init__(message)
+class Error(Exception):
+    """
+    Base class for other exceptions.
+    """
+    pass
 
-message = 'The index must be integer'
+class NotInteger(Error):
+    """
+    Raised when the value is not an integer and was typed as float.
+    """
+    pass
+
+class OutOfListIndex(Error):
+    """
+    Raised when the index is out the list range.
+    """
+    pass
+
+class IsString(Error):
+    """
+    Raised when the index is typed as string and should be integer.
+    """
+    pass
 
 def error_out_of_range(my_list, index):
-    if int(index) == index:
-        raise Integer(message)
+    try:
+        if isinstance(index, str):
+            raise IsString()
+        elif len(my_list) < index:
+            raise OutOfListIndex()
+        elif int(index) != index:
+            raise NotInteger()
+    except NotInteger as e1:
+        print(f'{type(e1)} :The value is not an integer and was typed as float.')
+    except OutOfListIndex as e2:
+        print(f'{type(e2)} :The index is out the list range.')
+    except IsString as e3:
+        print(f'{type(e3)} :The index is typed as string and should be integer.')
     else:
-        try:
-            my_list[index]
-        except LookupError:
-            print(f'The index is out of range. The list range starts in 0 until ' + str(len(my_list) - 1))
-        except TypeError:
-            print('Ops, there is something weird in your typing')
-        else:
-            print(f'The element in the {index+1} position is '+str(my_list[index]))
+        print(f'The element in the {index+1} position (index {index}) is '+str(my_list[index]))
 
-error_out_of_range(shopping_list, 2.5)
+error_out_of_range(shopping_list, 2)
 
 print('Step 7.2 - Use in operator to search elements inside the list')
 ## If the elements is not available in the list, then False boolean occur
-#print('Vegan' in shopping_list)
+print('Vegan' in shopping_list)
