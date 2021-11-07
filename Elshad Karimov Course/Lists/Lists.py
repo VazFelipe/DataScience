@@ -37,6 +37,8 @@ shopping_list = ['Milk', 'Cheese', 'Butter']
 print(shopping_list[0])
 
 print('Step 7.1 - Accessing elements of a list that does not exist')
+
+
 ## If the elements is not available in the index, then and error occur
 
 class Error(Exception):
@@ -45,11 +47,13 @@ class Error(Exception):
     """
     pass
 
+
 class NotInteger(Error):
     """
     Raised when the value is not an integer and was typed as float.
     """
     pass
+
 
 class OutOfListIndex(Error):
     """
@@ -57,11 +61,13 @@ class OutOfListIndex(Error):
     """
     pass
 
+
 class IsString(Error):
     """
     Raised when the index is typed as string and should be integer.
     """
     pass
+
 
 def error_out_of_range(my_list, index):
     try:
@@ -78,7 +84,8 @@ def error_out_of_range(my_list, index):
     except IsString as e3:
         print(f'{type(e3)} :The index was typed as string and should be integer.')
     else:
-        print(f'The element in the {index+1} position (index {index}) is '+str(my_list[index]))
+        print(f'The element in the {index + 1} position (index {index}) is ' + str(my_list[index]))
+
 
 error_out_of_range(shopping_list, 5)
 
@@ -92,7 +99,7 @@ for i in shopping_list:
     print(i)
 
 for i in range(len(shopping_list)):
-    shopping_list[i] = shopping_list[i]+"+"
+    shopping_list[i] = shopping_list[i] + "+"
     print(shopping_list[i])
 
 print('Step 7.4 - Accessing elements in a list')
@@ -103,6 +110,8 @@ print(integer_list)
 
 print('Step 7.5 - Inserting elements in a list')
 integer_list_step_74 = [1, 2, 3, 4, 5]
+
+
 # To the beginning of the list
 
 # To the any given place in the list
@@ -116,6 +125,7 @@ def insert_element(my_list, index, value):
         print(my_list)
         my_list.insert(index, value)
         print(my_list)
+
 
 print('To the any given place in the list. Time and space complexity is O(n).')
 insert_element(integer_list_step_74, 5, 0)
@@ -137,22 +147,24 @@ print(integer_list)
 print(integer_list[1:3])
 
 print('Deleting using pop() method. If the element is not at the end, then the time complexity will be O(n).')
-integer_list.pop(2) # using a parameter the time ans space complexity is O(n)
+integer_list.pop(2)  # using a parameter the time ans space complexity is O(n)
 print(integer_list)
 print('If any element is provided, then the pop() method deletes the last.')
-integer_list.pop() # without any parameter the time ans space complexity is O(1)
+integer_list.pop()  # without any parameter the time ans space complexity is O(1)
 print(integer_list)
 
 print('Deleting using del() method.')
-del integer_list[1] # O(n)
+del integer_list[1]  # O(n)
 print(integer_list)
 
 print('Deleting using remove() method is used for deletion of specific element.')
-integer_list.remove(4) # O(n)
+integer_list.remove(4)  # O(n)
 print(integer_list)
 
 print('Step 7.7 - Searching elements in a list')
 print('Using in operator')
+
+
 def searching_in_list(my_list, value):
     try:
         if isinstance(value, int):
@@ -165,14 +177,100 @@ def searching_in_list(my_list, value):
         else:
             print('The value does not exist in the given list')
 
+
 searching_in_list(string_list, 'I')
 
 print('Using linear search')
+
+
 def searching_in_list_2(my_list, value):
     for i in my_list:
         if i == value:
             return print(f'The index of the value is {my_list.index(value)}.')
     return print('The value does not exist in the given list')
 
+
 searching_in_list_2(string_list, 'Love')
+
+print('Step 8 - List Operations')
+print('Concatenate a list using + operator')
+
+list_integer_a = [1, 2, 3, 4]
+list_integer_b = [5, 6, 7, 8]
+list_concatenate = list_integer_a + list_integer_b
+print(list_concatenate)
+
+print('Asterisk as operator')
+
+list_asterisk = list_integer_a * 2
+print(list_asterisk)
+
+print('Step 9 - List Functions')
+
+print('Counting elements in the list')
+print(len(list_integer_a))
+
+print('The max element in the list')
+print(max(list_integer_a))
+
+print('The min element in the list')
+print(min(list_integer_a))
+
+print('Summing element in the list')
+print(sum(list_integer_a))
+
+print('Calculate the average from a list')
+print(sum(list_integer_a) / len(list_integer_a))
+
+print('Challenge - convert a block of code in a list functions/operations')
+
+print('The block of commented code')
+#total = 0
+#count = 0
+
+#while (True):
+#    inp = input('Enter a number: ')
+#    if inp == 'done':
+#        break
+#    value= float(inp)
+#    total = total + value
+#    count = count + 1
+#average = total / count
+#print('Average:', average)
+
+print('Challenge solved - has to be improved by error handling')
+def average_from_input():
+    my_list = list()
+    while True:
+        input_from_user = input('Enter a number until you write "Done": ')
+        if input_from_user == 'Done' or input_from_user == 'done':
+            break
+        value = float(input_from_user)
+        my_list.append(value)
+    average = sum(my_list) / len(my_list)
+    print('Average: ', average)
+
+#average_from_input()
+
+
+print('Step 10 - Create a list from a string')
+
+print('Using list function')
+my_string = 'spam'
+my_string_list = list(my_string)
+print(my_string_list)
+
+print('Using split function')
+my_string_2 = 'spam spam spam'
+my_string_2.split()
+print(my_string_2)
+
+print('Using split function with delimiter')
+my_string_3 = 'spam-spam-spam'
+delimiter = '-'
+my_string_3_split = my_string_3.split(delimiter)
+print(my_string_3_split)
+
+print('Using join function with delimiter to get back to string')
+print(delimiter.join(my_string_3_split))
 
