@@ -273,4 +273,3 @@ print(my_string_3_split)
 
 print('Using join function with delimiter to get back to string')
 print(delimiter.join(my_string_3_split))
-
