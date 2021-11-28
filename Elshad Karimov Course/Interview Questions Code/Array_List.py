@@ -50,9 +50,9 @@ import numpy as np
 array_number = np.array([1, 2, 3, 2, 3, 4, 5, 6])
 
 
-def find_number(myarray, find):
-    for i in range(len(myarray)):
-        if myarray[i] == find:
+def find_number(my_array, find):
+    for i in range(len(my_array)):
+        if my_array[i] == find:
             print(i)
 
 
@@ -63,6 +63,8 @@ print('Step Extra - Checking is an year is Leap Year')
 # fill in an year in the list, in this case, 2001 is not a leap year and 2000 is a leap year
 
 list_year = [2000, 2001, 2004]
+
+
 # full leap year's test list [1900, 2000, 2004, 2008, 2012, 2016, 2020, 2024, 2028, 2032, 2036, 2040, 2044, 2048]
 
 
@@ -90,3 +92,44 @@ def find_leap_year(my_list):
 
 
 find_leap_year(list_year)
+
+print('Step 4 - Finding a maximum product of two integers in the array where all elements are positive')
+
+array_step_4 = np.array([1, 20, 30, 44, 5, 56, 57, 8, 9, 10, 31, 12, 13, 14, 35, 16, 27, 58, 19, 21])
+
+
+def find_max_product(my_array):
+    max_product = 0
+    for i in range(len(my_array)):
+        for j in range(i + 1, len(my_array)):
+            if my_array[i] * my_array[j] > max_product:
+                max_product = my_array[i] * my_array[j]
+                my_array_pairs = str(my_array[i]) + " and " + str(my_array[j]) + " (" + str(my_array[i]) + " * " + str(my_array[j]) + " = " + str(max_product) + ")"
+    print(f'The maximum product of two integers in the array is {max_product}.')
+    print(f'The pairs that generates the maximum product is {my_array_pairs}.')
+
+
+find_max_product(array_step_4)
+
+
+print('Step 5 - Checking is a list has unique values and return True or False')
+
+list_step_5 = [1, 1, 20, 30, 44, 5, 56, 57, 8, 19, 10, 31, 12, 13, 14, 35, 16, 27, 58, 19, 21]
+
+
+def is_unique(my_list):
+    """
+    This space is intended for documentation.
+    """
+    list_temp = []
+    for i in my_list:
+        if i in list_temp:
+            print(i)
+            return False
+        else:
+            list_temp.append(i)
+    return True
+
+
+is_unique(list_step_5)
+
