@@ -1,3 +1,4 @@
+# Credits to Renan Moura Ferreira on https://www.freecodecamp.org/news/python-string-manipulation-handbook/
 # String manipulation using built-in functions
 
 print('Step 1 - text basics')
@@ -201,5 +202,66 @@ print(my_string_without_some_char)
 # it is possible to instead of using the lstrip() method get rstrip() for removing spaces and chars
 # from the end of string
 # Also, using just strip() method removes spaces and chars from both sides of a string
+
+print()
+
+print('Step 13 - Make a whole string lowercase and uppercase and use title case')
+
+print(my_name)
+print(f'This is my name lowercase {my_name.lower()}')
+print(f'This is my name uppercase {my_name.upper()}')
+
+my_name_lower = my_name.lower()
+
+print(f'This is my name lowercase {my_name_lower} for title() method')
+print(f'This is my name title case {my_name_lower.title()}')
+
+print()
+
+print('Step 14 - Swapping case from a string')
+
+print(my_name.swapcase())
+print(my_name_lower.swapcase())
+
+print()
+
+print('Step 15 - Checking if a string is empty')
+
+my_empty_string = ''
+my_non_empty_string = my_name
+
+
+def is_string_empty(my_string):
+    if not my_string:
+        print('My string is empty')
+    elif my_string:
+        print('My string is not empty')
+
+
+is_string_empty(my_non_empty_string)
+
+print()
+
+print('Step 16 - Right/Left-justify a string')
+
+# Why is not possible to see the results using less than 10 number_of_chars?
+
+number_of_chars = 32
+string_char = '$'
+
+my_first_name_right_justified = my_first_name.rjust(number_of_chars)
+my_first_name_right_justified_crazy = my_first_name.rjust(number_of_chars, string_char)
+my_first_name_left_justified = my_first_name.ljust(number_of_chars)
+my_first_name_left_justified_crazy = my_first_name.ljust(number_of_chars, string_char)
+
+print(my_first_name_right_justified)
+print(my_first_name_right_justified_crazy + ' (my money name version...jejejeje)')
+print(my_first_name_left_justified)
+print(my_first_name_left_justified_crazy)
+
+
+
+
+
 
 
