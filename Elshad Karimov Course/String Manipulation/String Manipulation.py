@@ -1,4 +1,4 @@
-# Credits to Renan Moura Ferreira on https://www.freecodecamp.org/news/python-string-manipulation-handbook/
+# Credits to Renan Moura Ferreira on https://renanmf.com/string-manipulation-in-python/
 # String manipulation using built-in functions
 
 print('Step 1 - text basics')
@@ -212,6 +212,7 @@ print(f'This is my name lowercase {my_name.lower()}')
 print(f'This is my name uppercase {my_name.upper()}')
 
 my_name_lower = my_name.lower()
+my_name_upper = my_name.upper()
 
 print(f'This is my name lowercase {my_name_lower} for title() method')
 print(f'This is my name title case {my_name_lower.title()}')
@@ -239,6 +240,7 @@ def is_string_empty(my_string):
 
 
 is_string_empty(my_non_empty_string)
+is_string_empty(my_empty_string)
 
 print()
 
@@ -259,9 +261,155 @@ print(my_first_name_right_justified_crazy + ' (my money name version...jejejeje)
 print(my_first_name_left_justified)
 print(my_first_name_left_justified_crazy)
 
+print()
+
+print('Step 17 - Checking if a string has alphanumeric characters only')
+
+my_string_alphanumeric = my_first_name + '5'
+my_string_alphanumeric_with_spaces = my_first_name + ' ' + '5'
+
+print(my_string_alphanumeric)
+print(my_string_alphanumeric_with_spaces)
 
 
+def is_alphanumeric(string):
+    if string.isalnum():
+        print(f'{string.isalnum()}: The string has not only alphanumeric characters')
+    else:
+        print(f'{string.isalnum()}: The string has only alphanumeric characters')
 
 
+# Alpha(bet) numeric(al) refers to characters that came from the alphabet and from numbers
+is_alphanumeric(my_string_alphanumeric)
+is_alphanumeric(my_string_alphanumeric_with_spaces)
 
+print()
+
+print('Step 18 - Checking if a string has printable characters')
+
+# The example using my_non_printable_string returns False, showing 5 kinds of characters that are non-printable:
+# form feed \f, line feed \n, carriage return \r, tab \t, and vertical tab \v. Some of these 'invisible' characters
+# may mess up your printing, giving you an unexpected output, even when everything 'looks' alright.
+
+my_non_printable_string = '\f\n\r\t\v'
+
+print(my_first_name.isprintable())
+print(my_non_printable_string.isprintable())
+
+print()
+
+print('Step 19 - Checking if a string has a space character')
+
+my_space_string = ' '
+my_non_printable_string_with_space = ' \f\n\r\t\v'
+
+print(my_space_string.isspace())
+print(my_non_printable_string_with_space.isspace())
+print(my_string_with_whitespaces.isspace())
+
+print()
+
+print('Step 20 - Checking if a string starts with a value')
+
+my_string_value_to_search = 'V'
+my_tuple_value_to_search = ('Felipe', 'Vaz')
+my_start_position = 7
+my_end_position = 16
+
+print(f'My string is: {my_name}. I want to lookup the letter \
+{my_string_value_to_search}, starting in the position {my_start_position} and ending in {my_end_position} position')
+
+# startswith() method is case-sensitive
+print(my_name.startswith(my_string_value_to_search))
+print(my_name.startswith(my_string_value_to_search, my_start_position, my_end_position))
+
+# using a tuple to search in a string
+print(my_name.startswith(my_tuple_value_to_search))
+
+print()
+
+print('Step 20 - Setting the first character as uppercase ')
+my_first_name_start_with_number = '5' + my_first_name
+
+print(my_name_lower.capitalize())
+print(my_first_name_start_with_number.capitalize())
+
+print()
+
+print('Step 21 - Checking if a string is upper case')
+
+print(my_name_lower.isupper())
+print(my_name_upper.isupper())
+
+print()
+
+print('Step 22 - Joining a char as a separator in a string')
+
+my_char_separator = '#'
+
+my_list_to_join = [my_first_name, my_middle_name, my_surname]
+my_tuple_to_join = (my_first_name, my_middle_name, my_surname)
+my_set_to_join = {my_first_name, my_middle_name, my_surname}
+my_dict_to_join = {'First name': my_first_name, 'Middle name': my_middle_name, 'Surname': my_surname}
+
+print(my_char_separator.join(my_list_to_join))
+print(my_char_separator.join(my_tuple_to_join))
+print(my_char_separator.join(my_set_to_join))
+print(my_char_separator.join(my_dict_to_join))
+
+print()
+
+print('Step 23 - Splitting a string at line breaks')
+
+my_string_with_linebreak = my_first_name + '\n' + my_middle_name + '\n' + my_surname
+
+print(my_string_with_linebreak.splitlines())
+
+# Using True as a parameter keeps the line break as character
+print(my_string_with_linebreak.splitlines(True))
+
+print()
+
+print('Step 24 - Checking if a string is all lower case')
+
+print(my_name_lower.islower())
+print(my_name_upper.islower())
+
+print()
+
+print('Step 25 - Checking if a string is numeric and its variations')
+# a nice discover is that isdecimal() is stricter than isdigit(), which in its turn is stricter than isnumeric().
+
+my_numeric_string = '5'
+print(my_numeric_string.isnumeric())
+
+# using an integer is not possible to evaluate and the execution will fail
+my_numeric_integer = int(5)
+# print(my_numeric_integer.isnumeric())
+
+print(my_string_alphanumeric.isnumeric())
+
+my_subscript_numeric_string = '\u2083'
+my_roman_numeric_string = '\u2169'
+
+print(my_subscript_numeric_string.isnumeric())
+print(my_roman_numeric_string.isnumeric())
+print(my_subscript_numeric_string.isdigit())
+print(my_roman_numeric_string.isdigit())
+print(my_subscript_numeric_string.isdecimal())
+print(my_roman_numeric_string.isdecimal())
+
+print()
+
+print('Step 26 - Checking if a string has only letters')
+
+print(my_name.isalpha()) # it has spaces between
+print(my_first_name.isalpha()) # it does not have spaces between
+
+print()
+
+print('Step 27 - Checking if every word in a string has an upper case initial letter')
+
+print(my_name.istitle())
+print(my_name_lower.istitle())
 
