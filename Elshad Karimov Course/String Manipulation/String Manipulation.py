@@ -146,7 +146,7 @@ my_string_with_whitespaces = "  " + my_first_name + \
 
 import re
 
-# Credits for https://www.freecodecamp.org/news/python-string-manipulation-handbook/, thank you \0/
+# Credits to Renan Moura Ferreira on https://renanmf.com/string-manipulation-in-python/, thank you \0/
 # Notice that the \s represents not only space ' ', but also form feed \f, line feed \n, carriage return \r, tab \t,
 # and vertical tab \v. # In summary, \s = [ \f\n\r\t\v]. # The + symbol is called a quantifier and is read as 'one or
 # more'. This means that it will consider, in this case, one or more white spaces since it is positioned right after
@@ -403,8 +403,8 @@ print()
 
 print('Step 26 - Checking if a string has only letters')
 
-print(my_name.isalpha()) # it has spaces between
-print(my_first_name.isalpha()) # it does not have spaces between
+print(my_name.isalpha())  # it has spaces between
+print(my_first_name.isalpha())  # it does not have spaces between
 
 print()
 
@@ -413,3 +413,122 @@ print('Step 27 - Checking if every word in a string has an upper case initial le
 print(my_name.istitle())
 print(my_name_lower.istitle())
 
+print()
+
+print('Step 28 - Using expandtabs() method to set up the number of spaces for a tab')
+
+index = 0
+
+print('char')
+for char in my_first_name:
+    print(index, char)
+    index += 1
+
+print('element')
+for element in my_first_name:
+    print(index, element)
+    index += 1
+
+print('element in range')
+for element in range(0, len(my_first_name)):
+    print(element, my_first_name[element])
+    index += 1
+
+print('char in range')
+for char in range(0, len(my_first_name)):
+    print(char, my_first_name[char])
+    index += 1
+
+print('10 hours later, i did not find a way of doing F e l i p e without using print(my_first_name, end= \' \''')')
+
+my_non_printable_tab = '\t'
+my_number_non_printable_char = 20
+
+again = my_first_name[0] + my_non_printable_tab
+again_2 = my_first_name[1] + my_non_printable_tab
+
+print(again + again_2)
+
+print(my_first_name[0] + my_non_printable_tab + my_first_name[1] + my_non_printable_tab + my_first_name[2])
+
+
+def function_try(string, non_printable):
+    for i in range(0, len(string)):
+        if (i + 1) > (len(string)-1):
+            None
+        else:
+            char_with_tab = string[i] + non_printable
+            print(str(char_with_tab) + function_try(string[i + 1], non_printable))
+
+
+#function_try(my_first_name, my_non_printable_tab)
+
+print('10 hours later, doing the easiest way')
+
+my_string_with_tab = 'F\te'
+print('012345678901234567890')
+print(my_string_with_tab.expandtabs(my_number_non_printable_char))
+
+print()
+
+print('Step 29 - Centering a string using center() method')
+
+print(my_first_name.center(number_of_chars, my_char_separator))
+
+print()
+
+print('Step 30 - Adding zeros to a string')
+
+print(my_first_name.zfill(number_of_chars))
+
+print()
+
+print('Step 31 - Checking if a string has certain substring')
+
+string_to_find = 'Vidor'
+print(my_name.find(string_to_find))
+print(my_name.find(string_to_find, 0, 6))
+print(my_name.find(string_to_find, 7, 13))
+
+print()
+
+print('Step 32 - Removing a prefix and suffix in a string')
+
+prefix_to_remove = 'FeFee'
+suffix_to_remove = 'Vaz'
+print(my_name.removeprefix(prefix_to_remove))
+print(my_name.lstrip(prefix_to_remove))
+print(my_name.removesuffix(suffix_to_remove))
+print(my_name.rstrip(suffix_to_remove))
+
+# lstrip() and rstrip() methods removes characters as removeprefix() and removesuffix() methods. The first one
+# removes the character as a partial match and the other on as a exact match.
+
+print()
+
+print('Step 33 - Slicing in Python')
+
+# example: my_list[start:stop:step]
+
+print('012345')
+print(my_first_name)
+
+# Getting the 'el' from my_first_name and right aligning only one position
+
+print(my_first_name[1:3:1].rjust(3))
+
+# Getting the 'ip' from my_first_name and right aligning only one position
+
+print(my_first_name[3:5:1].rjust(5))
+
+# Getting my_first_name in reverse order
+
+print(my_first_name[::-1])
+my_first_name_reversed = reversed(my_first_name)
+print(" ".join(reversed(my_first_name)))
+
+print()
+
+print('Final Step - Spending three ours to do the Step 28 and I did it in one single line of code in 30 seconds')
+# omg I have just find a way to do the step 28 in a single line!
+print(my_non_printable_tab.join(my_first_name).expandtabs(my_number_non_printable_char))
