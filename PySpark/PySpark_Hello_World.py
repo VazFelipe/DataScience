@@ -7,8 +7,8 @@ from urllib import request
 from urllib import parse
 import json
 
-bucketName = "unimedPOA-DataFlow"
-namespace = "idrocd00mlxh"
+bucketName = "XXXXXXXX"
+namespace = "XXXXXXXX"
 
 #Cria um spark session
 def get_dataflow_spark_session(
