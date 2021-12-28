@@ -7,13 +7,13 @@ from urllib import request
 from urllib import parse
 import json
 
-url = "https://msging.net/commands"
-bot_key = "Key dW5pbWVkcG9hY29tZXJjaWFsOklKSkRMZlprNHgycXNNVzg4WjZY"
-guid = "0094447a-2581-4597-be6a-a5dff33af156"
-take = "100"
+url = "XXXXXX"
+bot_key = "XXXXXX"
+guid = "XXXXXX"
+take = "XXXXXX"
 
-bucketName = "unimedPOA-DataFlow"
-namespace = "idrocd00mlxh"
+bucketName = "XXXXXX"
+namespace = "XXXXXX"
 
 #Cria um spark session
 def get_dataflow_spark_session(
