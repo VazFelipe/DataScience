@@ -156,3 +156,55 @@ def permutation(list1, list2):
 
 
 print(permutation(list_1, list_2))
+
+
+print('Step 7 - Rotating a matrix in an array')
+# This is one hard to do, so a tried to explain it step by step
+
+# creating an 3 x 3 matrix
+array_rotating = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+
+# printing the matrix for better understanding about its shape
+print(array_rotating)
+
+# setting n to the number of rows in the matrix
+n = len(array_rotating)
+
+# getting all the parameters inside the function and displaying it
+# printing n
+print('n')
+print(n)
+
+# printing n divided by 2 and returning a whole number
+print('n//2')
+print(n//2)
+
+# printing range of n divided by 2
+print('range(n//2)')
+print(range(n//2))
+
+# printing n minus layer minus 1
+print('n - layer - 1')
+print(n - (n//2) - 1)
+
+
+# creating a function
+def rotate_matrix(matrix):
+    n = len(matrix)
+    for layer in range(n//2):
+        first = layer
+        last = n - layer - 1
+        for i in range(first, last):
+            # saving the top element
+            top = matrix[layer][i]
+            # moving left element to the top
+            matrix[layer][i] = matrix[-i-1][layer]
+            # moving bottom element to the left
+            matrix[-i-1][layer] = matrix[-layer-1][-i-1]
+            # moving right element to the bottom
+            matrix[-layer-1][-i-1] = matrix[i][-layer-1]
+            # moving top element to the right
+            matrix[i][-layer-1] = top
+    return print(matrix)
+
+rotate_matrix(array_rotating)
