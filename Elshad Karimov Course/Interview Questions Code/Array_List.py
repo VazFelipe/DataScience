@@ -1,7 +1,9 @@
 # Credits to Elshad Karimov from Udemy Course
-## https://www.udemy.com/course/data-structures-and-algorithms-bootcamp-in-python/
+# https://www.udemy.com/course/data-structures-and-algorithms-bootcamp-in-python/
 
-### Finding the missing number in an integer list of 1 to n
+# Finding the missing number in an integer list of 1 to n
+
+import numpy as np
 
 list_missing = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
                 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54,
@@ -23,7 +25,7 @@ def find_missing_number(mylist):
 print('Step 1 - Finding the missing number in an integer list of 1 to n')
 find_missing_number(list_missing)
 
-### Finding the pairs in an integer list of 1 to n
+# Finding the pairs in an integer list of 1 to n
 
 list_pairs = [1, 2, 3, 2, 3, 4, 5, 6]
 
@@ -43,9 +45,7 @@ def find_pairs(mylist, target):
 print('Step 2 - Finding the pairs in an integer list of 1 to n')
 find_pairs(list_pairs, 12)
 
-### Check if an array contains a number in Python
-
-import numpy as np
+# Check if an array contains a number in Python
 
 array_number = np.array([1, 2, 3, 2, 3, 4, 5, 6])
 
@@ -104,17 +104,17 @@ def find_max_product(my_array):
         for j in range(i + 1, len(my_array)):
             if my_array[i] * my_array[j] > max_product:
                 max_product = my_array[i] * my_array[j]
-                my_array_pairs = str(my_array[i]) + " and " + str(my_array[j]) + " (" + str(my_array[i]) + " * " + str(my_array[j]) + " = " + str(max_product) + ")"
+                my_array_pairs = str(my_array[i]) + " and " + str(my_array[j]) + " (" + str(my_array[i]) + " * " + str(
+                    my_array[j]) + " = " + str(max_product) + ")"
     print(f'The maximum product of two integers in the array is {max_product}.')
     print(f'The pairs that generates the maximum product is {my_array_pairs}.')
 
 
 find_max_product(array_step_4)
 
-
 print('Step 5 - Checking is a list has unique values and return True or False')
 
-list_step_5 = [1, 1, 20, 30, 44, 5, 56, 57, 8, 19, 10, 31, 12, 13, 14, 35, 16, 27, 58, 19, 21]
+list_step_5 = [1, 20, 30, 44, 5, 56, 57, 8, 9, 10, 31, 12, 13, 14, 35, 16, 27, 58, 19, 21]
 
 
 def is_unique(my_list):
@@ -133,3 +133,26 @@ def is_unique(my_list):
 
 is_unique(list_step_5)
 
+
+print('Step 6 - Checking if two lists are permutation of each other')
+
+list_1 = [1, 3, 2]
+list_2 = [2, 1, 3]
+
+
+def permutation(list1, list2):
+    if len(list1) != len(list2):
+        return False
+    list1.sort()
+    list2.sort()
+    if list1 == list2:
+        for i in range(0, len(list1)):
+            print(list1[i], list2[i])
+        return True
+    else:
+        for i in range(0, len(list1)):
+            print(list1[i], list2[i])
+        return False
+
+
+print(permutation(list_1, list_2))

@@ -1,6 +1,8 @@
 # Credits to Renan Moura Ferreira on https://renanmf.com/string-manipulation-in-python/
 # String manipulation using built-in functions
 
+
+
 print('Step 1 - text basics')
 print()
 # A string or str can be defined like this:
@@ -51,6 +53,7 @@ def traverse_name(name):
 
 
 traverse_name(my_name)
+
 
 print('Step 3.2 - char traversing WOW')
 
@@ -532,3 +535,4 @@ print()
 print('Final Step - Spending three ours to do the Step 28 and I did it in one single line of code in 30 seconds')
 # omg I have just find a way to do the step 28 in a single line!
 print(my_non_printable_tab.join(my_first_name).expandtabs(my_number_non_printable_char))
+
