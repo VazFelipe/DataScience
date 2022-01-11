@@ -142,3 +142,5 @@ print('Step 16')
 print(my_array[1:4])
 print(my_array[:4])
 print(my_array[1:])
+
+print('hello world')
